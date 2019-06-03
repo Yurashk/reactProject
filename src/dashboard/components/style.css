@@ -1,0 +1,25 @@
+input {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.productCard {
+    color: black;
+}
+
+ul {
+    width: 100%;
+    list-style: none
+}
+
+li {
+    cursor: pointer;
+}
+
+li:hover {
+    color: blue;
+}
+
+.Navigation {
+    height: 100vh;
+}
