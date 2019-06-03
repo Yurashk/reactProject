@@ -1,7 +1,7 @@
 import React from 'react';
 import Main from './components/main'
 import Navigation from './components/navigation';
-
+import logo from '../logo.svg';
 import './mainStyle.css';
 
 class Dashboard extends React.Component {
@@ -47,11 +47,16 @@ class Dashboard extends React.Component {
         }
         else {
             return (
-                <div>
-                    <h1>
-                        No Data Yet!!!
-                    </h1>
+                <div class="container">
+                <div class="row justify-content-center mt-5">
+                    
+                    <img src={logo}  className="App-logo" alt="logo" />
                 </div>
+
+                
+                    
+                
+            </div>
             );
         }
     }
