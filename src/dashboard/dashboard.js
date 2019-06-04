@@ -33,7 +33,7 @@ class Dashboard extends React.Component {
             return (
                 <div class="container-fluid" >
                     <div class="row">
-                        <div class="col-3 bg-dark">
+                        <div class="col-3 bg-dark nav" >
                             <Navigation renderData={this.props.dataMethod} takeValue={this.output} />
                         </div>
                         <div class="col-9 border-left">

@@ -21,5 +21,30 @@ li:hover {
 }
 
 .Navigation {
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
+}
+
+.name {
+    font-size: 0.7em;
+    width: 250px;
+    padding: 0
+}
+
+th {
+    font-size: 0.7em;
+    padding-left: 1%;
+}
+
+td {
+    font-size: 0.8em;
+    min-width: 70px;
+    padding-left: 1%;
+}
+
+.image {
+    max-width: 90px;
+    max-height: 70px;
+    border-radius: 5px;
+    margin-left: 20%
 }
