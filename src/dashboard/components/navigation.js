@@ -4,27 +4,18 @@ import './style.css';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 class Navigation extends React.Component {
-
     state = {
         allData: this.props.renderData,
         orignCategories: this.props.renderData,
         filterData: []
     }
-
     componentDidMount() {
 
         this.setState({ filterData: this.orignCategoriess() });
     }
-
-
     orignCategoriess = () => {
-
         let filteredArr = [];
-
         if (this.state.orignCategories) {
-            // for (let i = 0; i < this.state.orignCategories.length; i++) {
-            //     filteredArr.push(this.state.orignCategories[i].bsr_category);
-            //  }
             nextInput:
             for (let i = 0; i < this.state.orignCategories.length; i++) {
                 var str = this.state.orignCategories[i].bsr_category;
@@ -35,32 +26,26 @@ class Navigation extends React.Component {
             }
             return filteredArr;
         }
-
     }
     render() {
         return (
             <Router>
                 <div class="Navigation">
-                    <h2 class="text-light">
+                    <h3 class="text-light mt-3">
                         Choose category
-                    </h2>
-
+                    </h3>
                     {
                         this.state.filterData.map((item, index) => {
                             return (
-
                                 <div class="mt-5">
                                     <ul key={index} >
-                                        <Link to={`/${item}`}> <li class="text-light " onClick={(evt) => this.props.takeValue(item)} > {item} </li> </Link>
-
+                                        <Link to={`/${item}/:`}> <li class="text-light " onClick={(evt) => this.props.takeValue(item)} > {item} </li> </Link>
                                     </ul>
-
                                 </div>
                             )
                         })
                     }
                     <ul><Link to={`/all`}><li class="text-light mt-5" onClick={(evt) => this.props.takeValue(0)}>All</li></Link></ul>
-
                 </div>
             </Router>
         );

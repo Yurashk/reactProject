@@ -1,9 +1,6 @@
 import React from 'react';
 import './style.css';
-// import Button from 'react-bootstrap/Button';
 import { BrowserRouter as Router, Link } from "react-router-dom";
-
-
 
 class Main extends React.Component {
     state = {
@@ -24,11 +21,7 @@ class Main extends React.Component {
     componentDidUpdate(prevProps, _) {
         if (prevProps.putValue.length !== this.props.putValue.length) {
             this.filterList();     
-        }
-        
-
-        
-        
+        } 
     }
     filterList = () => {
         if (this.props.putValue) {
@@ -44,6 +37,10 @@ class Main extends React.Component {
            
         }
     }
+    clearFilter=(e)=>{
+        e.target.value=null;
+        this.filterData(e);
+    }
     render() {
     
         return (
@@ -51,7 +48,7 @@ class Main extends React.Component {
             <div class="container-fluid">
                 <div class="row mt-3 mb-3 justify-content-center">
                     <div class="col-11">      
-                        <input placeholder="Name" onChange={this.filterData} />
+                        <input placeholder="Name" onChange={this.filterData} onClick={this.clearFilter} />
                     </div>
                 </div>
                 <div class="row justify-content-center">

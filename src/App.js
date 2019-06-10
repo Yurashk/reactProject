@@ -1,30 +1,57 @@
 import React from 'react';
 import Dashbord from './dashboard/dashboard'
 import './App.css';
-// import { async } from 'q';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom"; 
+import { connect } from 'react-redux';
+import { personsFetchData } from './dashboard/actions/persons'
+import logo from './logo.svg';
 
-
-
-class App extends React.Component{
+class App extends React.Component {
   state = {
     localData: [],
-}
-    async componentDidMount(){
-    
-    const api_url = await 
-    fetch(`https://demo8421975.mockable.io/products`);
-    const data=await api_url.json();
-    this.setState({ localData: data });
-   
   }
-  render(){
-    return(
-      <div>
-        <Dashbord dataMethod={this.state.localData.products} />
-      </div>
-    );
+  componentDidMount() {
+    this.props.fetchData(`https://demo8421975.mockable.io/products`);
+    const data = this.props.data;
+    this.setState({ localData: data });
+  }
+  render() {
+    if (this.props.data) {
+
+
+      return (
+        <div>
+          <Dashbord dataMethod={this.props.data.products} />
+        </div>
+      );
+    }
+    else {
+      return (
+        <div class="container">
+          <div class="row justify-content-center mt-5">
+
+            <img src={logo} className="App-logo" alt="logo" />
+          </div>
+
+        </div>
+      )
+    }
+
   }
 }
 
-export default App;
+
+const mapStateToProps = state => {
+  return {
+    data: state.products.data
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+
+  return {
+    fetchData: url => dispatch(personsFetchData(url))
+
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

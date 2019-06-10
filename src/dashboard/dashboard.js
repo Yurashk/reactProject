@@ -13,22 +13,15 @@ class Dashboard extends React.Component {
         category:0,
         categoryToShow:''
     }
-
     output(evt) {
-       
         this.setState({category: this.state.category + evt});
-       
         var d;
         if(evt!==d){
-            this.setState({ categoryToShow: evt });
-           
+            this.setState({ categoryToShow: evt }); 
         }
         d=evt;
-
-
     }
     render() {
-        
         if (this.props.dataMethod) {
             return (
                 <div class="container-fluid" >
@@ -40,22 +33,15 @@ class Dashboard extends React.Component {
                             <Main renderData={this.props.dataMethod} putValue={this.state.categoryToShow} />
                         </div>
                     </div>
-                   
-                    
                 </div>
             );
         }
         else {
             return (
                 <div class="container">
-                <div class="row justify-content-center mt-5">
-                    
+                <div class="row justify-content-center mt-5"> 
                     <img src={logo}  className="App-logo" alt="logo" />
-                </div>
-
-                
-                    
-                
+                </div>  
             </div>
             );
         }
